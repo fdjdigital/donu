@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre — Donu | Nossa história e valores</title>
+    <meta name="description" content="O Donu é o contador digital do MEI. Conheça a história, o significado do nome e os valores que guiam cada funcionalidade do app.">
+    <link rel="canonical" href="https://donuapp.com/sobre">
+    <link rel="icon" type="image/png" href="/images/logos/icone-colorida.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="no-gsap">
+
+<!-- PAGE LOADER -->
+<div class="page-loader" id="pageLoader">
+    <img src="/images/logos/icone-branca.png" alt="Carregando Donu...">
+</div>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" title="Voltar ao topo">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- LGPD COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+    <p>Usamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa <a href="#">Política de Privacidade</a>.</p>
+    <div class="cookie-banner-actions">
+        <button class="btn btn-primary" onclick="acceptCookies()">Aceitar</button>
+    </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="/" onclick="closeMobileMenu()">Início</a>
+    <a href="/funcionalidades" onclick="closeMobileMenu()">Funcionalidades</a>
+    <a href="/precos" onclick="closeMobileMenu()">Preços</a>
+    <a href="/sobre" onclick="closeMobileMenu()">Sobre</a>
+    <a class="btn btn-ghost" href="#" onclick="closeMobileMenu()">Entrar</a>
+    <a class="btn btn-primary" href="#" onclick="closeMobileMenu()">Começar por R$39,90/mês</a>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<div class="whatsapp-float">
+    <div class="whatsapp-btn">
+        <div class="whatsapp-pulse"></div>
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header dark-mode" id="home-header">
+    <a class="logo-link" href="/">
+        <img src="/images/logos/logo-branca.png" alt="Donu" id="home-logo">
+    </a>
+    <nav class="nav-menu">
+        <a href="/">Início</a>
+        <a href="/funcionalidades">Funcionalidades</a>
+        <a href="/precos">Preços</a>
+        <a href="/sobre" class="current">Sobre</a>
+        <a class="btn btn-ghost" href="#">Entrar</a>
+        <a class="btn btn-primary" href="#">Assinar</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+</header>
+
+<!-- HERO -->
+<div class="about-hero">
+    <div class="dot-pattern"></div>
+    <h1 class="reveal">Nascemos pra colocar o<br>MEI no controle</h1>
+    <p class="reveal delay-1">O Donu nasceu da vontade de simplificar a vida de milhões de microempreendedores brasileiros.</p>
+</div>
+
+<!-- Nossa história -->
+<section class="section">
+    <div class="about-grid">
+        <div class="about-image reveal-left" style="overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <img src="/images/mascote/julius-logo-apoiando.webp" alt="Julius apresentando o Donu" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 12px 30px rgba(26,86,219,0.1));">
+        </div>
+        <div class="reveal-right">
+            <div class="section-label">Nossa história</div>
+            <h2 class="section-title" style="font-size: 32px;">De uma dor real,<br>uma solução real</h2>
+            <p style="color: var(--gray-500); font-size: 16px; line-height: 1.8; margin-bottom: 14px;">O <span style="color:#1a56db;font-weight:700;">Donu</span> nasceu quando Juliano Castro, empresário e advogado tributarista com 25 anos de experiência, percebeu que milhões de MEIs enfrentavam os mesmos problemas: guia atrasada, falta de controle financeiro e medo de multas.</p>
+            <p style="color: var(--gray-500); font-size: 16px; line-height: 1.8;">A ideia era simples: criar um contador digital que fizesse por você o que um contador faz, mas por R$500/ano em vez de milhares. Acessível, automático e com linguagem que qualquer pessoa entende. Assim nasceu o <span style="color:#1a56db;font-weight:700;">Donu</span>.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Significado do nome -->
+<section class="section-full section-alt">
+    <div class="section-inner">
+        <div class="text-center">
+            <div class="section-label reveal mx-auto" style="justify-content:center;">O significado</div>
+            <h2 class="section-title reveal delay-1">Por que Donu?</h2>
+            <p class="section-subtitle reveal delay-2 mx-auto">Donu vem de "dono". Porque todo MEI é dono do seu negócio, dos seus sonhos e do seu futuro. Nosso logo une a letra D com uma impressão digital: cada empreendedor é único.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card reveal delay-1">
+                <div class="value-icon">D</div>
+                <h3>A marca do Dono</h3>
+                <p>O D maior simboliza que você é o protagonista. Seu negócio, suas regras, seu controle.</p>
+            </div>
+            <div class="value-card reveal delay-2">
+                <div class="value-icon">
+                    <img src="/images/logos/icone-colorida.png" alt="Donu" style="width: 36px; height: 36px; object-fit: contain;">
+                </div>
+                <h3>Sua impressão digital</h3>
+                <p>Cada MEI é único. A impressão digital no logo simboliza que o Donu reconhece sua individualidade.</p>
+            </div>
+            <div class="value-card reveal delay-3">
+                <div class="value-icon">O</div>
+                <h3>Você no centro</h3>
+                <p>O círculo no O representa o dono no centro de tudo. O app gira ao redor das suas necessidades.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Valores -->
+<section class="section">
+    <div class="text-center">
+        <div class="section-label reveal mx-auto" style="justify-content:center;">No que acreditamos</div>
+        <h2 class="section-title reveal delay-1">Nossos valores</h2>
+        <p class="section-subtitle reveal delay-2 mx-auto">Os princípios que guiam cada decisão que tomamos.</p>
+    </div>
+    <div class="values-grid">
+        <div class="value-card reveal delay-1">
+            <div class="value-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3>Simplicidade</h3>
+            <p>Se o MEI não entende, a culpa é nossa. Tudo precisa ser simples, claro e direto.</p>
+        </div>
+        <div class="value-card reveal delay-2">
+            <div class="value-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <h3>Transparência</h3>
+            <p>Preços claros, sem letras miúdas, sem surpresas. O MEI merece saber exatamente o que está pagando.</p>
+        </div>
+        <div class="value-card reveal delay-3">
+            <div class="value-icon"><svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h3>Proteção</h3>
+            <p>Nosso papel é proteger o MEI de multas, erros e surpresas. Como o Julius: forte, atento e confiável.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="dot-pattern"></div>
+    <img src="/images/mascote/julius-logo-apoiando.webp" alt="" class="cta-julius" aria-hidden="true">
+    <div style="position:relative;z-index:2;">
+        <h2 class="reveal">Faça parte dessa história</h2>
+        <p class="reveal delay-1">Coloque seu MEI no controle. Comece agora e pare de depender de contador.</p>
+        <div class="cta-buttons">
+            <a class="btn btn-primary btn-lg reveal delay-2" href="#">Começar por R$39,90/mês →</a>
+            <a class="btn btn-whatsapp btn-lg reveal delay-3" href="#">Falar pelo WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="/images/logos/logo-branca.png" alt="Donu">
+            <p>Seu contador digital. Guia do imposto, notas fiscais e controle financeiro do seu MEI em um só lugar.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Produto</h4>
+            <a href="/funcionalidades">Funcionalidades</a>
+            <a href="/precos">Preços</a>
+            <a href="/indicacao">Indicação</a>
+            <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+            <h4>Empresa</h4>
+            <a href="/sobre">Sobre</a>
+            <a href="#">Contato</a>
+            <a href="#">Carreiras</a>
+            <a href="#">Imprensa</a>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">LGPD</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Donu App. Todos os direitos reservados. Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);text-decoration:underline;">vanttmkt.com</a></span>
+        <div class="footer-social">
+            <a href="#" title="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="#" title="LinkedIn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="#" title="YouTube"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>
