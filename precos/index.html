@@ -5,11 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preços — Donu | Planos para seu MEI</title>
     <meta name="description" content="Plano Básico R$59,90/mês ou PRO R$39,90/mês (anual). Geração de guia DAS, nota fiscal, controle financeiro e muito mais. Sem letras miúdas.">
-    <link rel="canonical" href="https://donuapp.com/precos">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Preços — Donu | Planos para seu MEI">
+    <meta property="og:description" content="Plano Básico R$59,90/mês ou PRO R$39,90/mês (anual). Geração de guia DAS, nota fiscal, controle financeiro e muito mais. Sem letras miúdas.">
+    <meta property="og:url" content="https://donuapp.com/precos/">
+    <meta property="og:image" content="https://donuapp.com/images/logos/icone-colorida.png">
+    <meta property="og:site_name" content="Donu">
+    <meta property="og:locale" content="pt_BR">
+    <link rel="canonical" href="https://donuapp.com/precos/">
     <link rel="icon" type="image/png" href="/images/logos/icone-colorida.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Preços — Donu | Planos para seu MEI",
+      "description": "Plano Básico R$59,90/mês ou PRO R$39,90/mês (anual). Geração de guia DAS, nota fiscal, controle financeiro e muito mais. Sem letras miúdas.",
+      "url": "https://donuapp.com/precos/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Donu",
+        "url": "https://donuapp.com"
+      }
+    }
+    </script>
 </head>
 <body class="no-gsap">
 
@@ -34,9 +56,9 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
     <a href="/" onclick="closeMobileMenu()">Início</a>
-    <a href="/funcionalidades" onclick="closeMobileMenu()">Funcionalidades</a>
-    <a href="/precos" onclick="closeMobileMenu()">Preços</a>
-    <a href="/sobre" onclick="closeMobileMenu()">Sobre</a>
+    <a href="/funcionalidades/" onclick="closeMobileMenu()">Funcionalidades</a>
+    <a href="/precos/" onclick="closeMobileMenu()">Preços</a>
+    <a href="/sobre/" onclick="closeMobileMenu()">Sobre</a>
     <a class="btn btn-ghost" href="#" onclick="closeMobileMenu()">Entrar</a>
     <a class="btn btn-primary" href="#" onclick="closeMobileMenu()">Começar por R$39,90/mês</a>
 </div>
@@ -56,13 +78,13 @@
     </a>
     <nav class="nav-menu">
         <a href="/">Início</a>
-        <a href="/funcionalidades">Funcionalidades</a>
-        <a href="/precos" class="current">Preços</a>
-        <a href="/sobre">Sobre</a>
+        <a href="/funcionalidades/">Funcionalidades</a>
+        <a href="/precos/" class="current">Preços</a>
+        <a href="/sobre/">Sobre</a>
         <a class="btn btn-ghost" href="#">Entrar</a>
         <a class="btn btn-primary" href="#">Assinar</a>
     </nav>
-    <button class="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+    <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </header>
 
 <!-- HERO -->
@@ -124,7 +146,7 @@
         <div style="display: inline-block; background: var(--green); color: white; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-bottom: 12px;">Indique e ganhe</div>
         <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">Indique 2 amigos e ganhe 1 mês grátis</h3>
         <p style="color: var(--gray-500); font-size: 15px; margin-bottom: 16px;">Compartilhe pelo WhatsApp, link ou app. Seus amigos também ganham desconto.</p>
-        <a class="btn btn-secondary" href="/indicacao" style="border-color: var(--green); color: var(--green);">Indicar Amigos →</a>
+        <a class="btn btn-secondary" href="/indicacao/" style="border-color: var(--green); color: var(--green);">Indicar Amigos →</a>
     </div>
 
     <p class="text-center reveal delay-4" style="margin-top: 32px; color: var(--gray-400); font-size: 14px;">
@@ -183,21 +205,21 @@
             <p>Seu contador digital. Guia do imposto, notas fiscais e controle financeiro do seu MEI em um só lugar.</p>
         </div>
         <div class="footer-col">
-            <h4>Produto</h4>
-            <a href="/funcionalidades">Funcionalidades</a>
-            <a href="/precos">Preços</a>
-            <a href="/indicacao">Indicação</a>
+            <div class="footer-col-title">Produto</div>
+            <a href="/funcionalidades/">Funcionalidades</a>
+            <a href="/precos/">Preços</a>
+            <a href="/indicacao/">Indicação</a>
             <a href="/blog/">Blog</a>
         </div>
         <div class="footer-col">
-            <h4>Empresa</h4>
-            <a href="/sobre">Sobre</a>
+            <div class="footer-col-title">Empresa</div>
+            <a href="/sobre/">Sobre</a>
         </div>
         <div class="footer-col">
-            <h4>Legal</h4>
-            <a href="/termos-de-uso">Termos de Uso</a>
-            <a href="/politica-de-privacidade">Política de Privacidade</a>
-            <a href="/lgpd">LGPD</a>
+            <div class="footer-col-title">Legal</div>
+            <a href="/termos-de-uso/">Termos de Uso</a>
+            <a href="/politica-de-privacidade/">Política de Privacidade</a>
+            <a href="/lgpd/">LGPD</a>
         </div>
     </div>
     <div class="footer-bottom">

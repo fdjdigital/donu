@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donu — Seu contador digital MEI</title>
     <meta name="description" content="O Donu é o contador digital do MEI. Gera sua guia do imposto, emite nota fiscal e organiza suas finanças — por R$39,90/mês em vez de milhares. Comece agora.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Donu — Seu contador digital MEI">
+    <meta property="og:description" content="O Donu é o contador digital do MEI. Gera sua guia do imposto, emite nota fiscal e organiza suas finanças — por R$39,90/mês em vez de milhares. Comece agora.">
+    <meta property="og:url" content="https://donuapp.com/">
+    <meta property="og:image" content="https://donuapp.com/images/logos/icone-colorida.png">
+    <meta property="og:site_name" content="Donu">
+    <meta property="og:locale" content="pt_BR">
     <link rel="canonical" href="https://donuapp.com/">
     <link rel="icon" type="image/png" href="/images/logos/icone-colorida.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <!-- Three.js for Julius 3D -->
@@ -17,6 +25,20 @@
             "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
             "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
         }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Donu",
+      "description": "Seu contador digital MEI",
+      "url": "https://donuapp.com/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Donu",
+        "url": "https://donuapp.com"
+      }
     }
     </script>
 </head>
@@ -43,9 +65,9 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
     <a href="/" onclick="closeMobileMenu()">Início</a>
-    <a href="/funcionalidades" onclick="closeMobileMenu()">Funcionalidades</a>
-    <a href="/precos" onclick="closeMobileMenu()">Preços</a>
-    <a href="/sobre" onclick="closeMobileMenu()">Sobre</a>
+    <a href="/funcionalidades/" onclick="closeMobileMenu()">Funcionalidades</a>
+    <a href="/precos/" onclick="closeMobileMenu()">Preços</a>
+    <a href="/sobre/" onclick="closeMobileMenu()">Sobre</a>
     <a class="btn btn-ghost" href="#" onclick="closeMobileMenu()">Entrar</a>
     <a class="btn btn-primary" href="#" onclick="closeMobileMenu()">Começar por R$39,90/mês</a>
 </div>
@@ -61,17 +83,17 @@
 <!-- HEADER -->
 <header class="site-header dark-mode" id="home-header">
     <a class="logo-link" href="/">
-        <img src="/images/logos/logo-branca.png" alt="Donu" id="home-logo">
+        <img src="/images/logos/logo-branca.png" alt="Donu" id="home-logo" width="144" height="48">
     </a>
     <nav class="nav-menu">
         <a href="/" class="current">Início</a>
-        <a href="/funcionalidades">Funcionalidades</a>
-        <a href="/precos">Preços</a>
-        <a href="/sobre">Sobre</a>
+        <a href="/funcionalidades/">Funcionalidades</a>
+        <a href="/precos/">Preços</a>
+        <a href="/sobre/">Sobre</a>
         <a class="btn btn-ghost" href="#">Entrar</a>
         <a class="btn btn-primary" href="#">Assinar</a>
     </nav>
-    <button class="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+    <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </header>
 
 <!-- HERO -->
@@ -143,7 +165,7 @@
     </div>
 
     <!-- Julius no hero -->
-    <img src="/images/mascote/julius-busto.webp" alt="" class="julius-hero-img julius-parallax" aria-hidden="true">
+    <img src="/images/mascote/julius-busto.webp" alt="" class="julius-hero-img julius-parallax" aria-hidden="true" loading="lazy">
 
     <div class="scroll-indicator" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">
         <div class="scroll-mouse">
@@ -169,7 +191,7 @@
 <div class="urgency-banner reveal">
     <div class="urgency-banner-inner">
         <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <p>A nota fiscal de serviço (NFS-e) já é obrigatória para MEIs que prestam serviço para empresas. <a href="/funcionalidades">Prepare-se agora</a></p>
+        <p>A nota fiscal de serviço (NFS-e) já é obrigatória para MEIs que prestam serviço para empresas. <a href="/funcionalidades/">Prepare-se agora</a></p>
     </div>
 </div>
 
@@ -301,7 +323,7 @@
     </div>
 
     <div class="text-center reveal delay-3" style="margin-top: 48px;">
-        <a class="btn btn-secondary btn-lg" href="/funcionalidades">Ver todas as funcionalidades →</a>
+        <a class="btn btn-secondary btn-lg" href="/funcionalidades/">Ver todas as funcionalidades →</a>
     </div>
 </section>
 
@@ -464,7 +486,7 @@
         <div style="display: inline-block; background: var(--green); color: white; font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-bottom: 12px;">Indique e ganhe</div>
         <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">Indique 2 amigos e ganhe 1 mês grátis</h3>
         <p style="color: var(--gray-500); font-size: 15px; margin-bottom: 16px;">Compartilhe pelo WhatsApp, link ou app. Seus amigos também ganham desconto.</p>
-        <a class="btn btn-secondary" href="/indicacao" style="border-color: var(--green); color: var(--green);">Saiba mais →</a>
+        <a class="btn btn-secondary" href="/indicacao/" style="border-color: var(--green); color: var(--green);">Saiba mais →</a>
     </div>
 
     <p class="text-center reveal delay-4" style="margin-top: 28px; color: var(--gray-400); font-size: 14px;">
@@ -553,7 +575,7 @@
             </div>
         </div>
         <div class="faq-julius-sticky reveal-right delay-3">
-            <img src="/images/mascote/julius-laptop.webp" alt="Julius">
+            <img src="/images/mascote/julius-laptop.webp" alt="Julius" loading="lazy">
             <div class="faq-julius-bubble">Pode perguntar! Estou aqui pra ajudar.</div>
         </div>
     </div>
@@ -603,7 +625,7 @@
 <!-- ===== CTA FINAL ===== -->
 <section class="cta-section">
     <div class="dot-pattern"></div>
-    <img src="/images/mascote/julius-confiante.webp" alt="" class="cta-julius" aria-hidden="true">
+    <img src="/images/mascote/julius-confiante.webp" alt="" class="cta-julius" aria-hidden="true" loading="lazy">
     <div style="position:relative;z-index:2;">
         <h2 class="reveal">Pronto pra organizar seu MEI?</h2>
         <p class="reveal delay-1">A partir de R$39,90/mês no plano anual. Indique 2 amigos e ganhe 1 mês grátis.</p>
@@ -618,25 +640,25 @@
 <footer class="site-footer">
     <div class="footer-grid">
         <div class="footer-brand">
-            <img src="/images/logos/logo-branca.png" alt="Donu">
+            <img src="/images/logos/logo-branca.png" alt="Donu" loading="lazy" width="132" height="44">
             <p>Seu contador digital. Guia do imposto, notas fiscais e controle financeiro do seu MEI em um só lugar.</p>
         </div>
         <div class="footer-col">
-            <h4>Produto</h4>
-            <a href="/funcionalidades">Funcionalidades</a>
-            <a href="/precos">Preços</a>
-            <a href="/indicacao">Indicação</a>
+            <div class="footer-col-title">Produto</div>
+            <a href="/funcionalidades/">Funcionalidades</a>
+            <a href="/precos/">Preços</a>
+            <a href="/indicacao/">Indicação</a>
             <a href="/blog/">Blog</a>
         </div>
         <div class="footer-col">
-            <h4>Empresa</h4>
-            <a href="/sobre">Sobre</a>
+            <div class="footer-col-title">Empresa</div>
+            <a href="/sobre/">Sobre</a>
         </div>
         <div class="footer-col">
-            <h4>Legal</h4>
-            <a href="/termos-de-uso">Termos de Uso</a>
-            <a href="/politica-de-privacidade">Política de Privacidade</a>
-            <a href="/lgpd">LGPD</a>
+            <div class="footer-col-title">Legal</div>
+            <a href="/termos-de-uso/">Termos de Uso</a>
+            <a href="/politica-de-privacidade/">Política de Privacidade</a>
+            <a href="/lgpd/">LGPD</a>
         </div>
     </div>
     <div class="footer-bottom">

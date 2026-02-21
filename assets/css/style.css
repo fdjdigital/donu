@@ -1039,7 +1039,8 @@ body {
 }
 .footer-brand img { height: 44px; margin-bottom: 16px; }
 .footer-brand p { color: var(--gray-400); font-size: 14px; line-height: 1.7; }
-.footer-col h4 {
+.footer-col h4,
+.footer-col .footer-col-title {
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
@@ -1064,7 +1065,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--gray-600);
+    color: var(--gray-400);
     font-size: 13px;
 }
 .footer-social {

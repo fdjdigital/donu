@@ -13,6 +13,7 @@
     <meta property="og:url" content="https://donuapp.com/blog/regra-17-inscricao-estadual-municipal-mei/">
     <meta property="og:site_name" content="Donu">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/blog.css">
@@ -25,21 +26,21 @@
 <header class="site-header" id="siteHeader">
     <a class="logo-link" href="/"><img src="/images/logos/logo-colorida.png" alt="Donu"></a>
     <nav class="nav-menu">
-        <a href="/">In&iacute;cio</a>
-        <a href="/funcionalidades">Funcionalidades</a>
-        <a href="/precos">Pre&ccedil;os</a>
-        <a href="/sobre">Sobre</a>
+        <a href="/">Início</a>
+        <a href="/funcionalidades/">Funcionalidades</a>
+        <a href="/precos/">Preços</a>
+        <a href="/sobre/">Sobre</a>
         <a class="btn btn-ghost" href="#">Entrar</a>
         <a class="btn btn-primary" href="#">Assinar</a>
     </nav>
-    <button class="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
+    <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-    <a href="/" onclick="closeMobileMenu()">In&iacute;cio</a>
-    <a href="/funcionalidades" onclick="closeMobileMenu()">Funcionalidades</a>
-    <a href="/precos" onclick="closeMobileMenu()">Pre&ccedil;os</a>
-    <a href="/sobre" onclick="closeMobileMenu()">Sobre</a>
+    <a href="/" onclick="closeMobileMenu()">Início</a>
+    <a href="/funcionalidades/" onclick="closeMobileMenu()">Funcionalidades</a>
+    <a href="/precos/" onclick="closeMobileMenu()">Preços</a>
+    <a href="/sobre/" onclick="closeMobileMenu()">Sobre</a>
     <a class="btn btn-ghost" href="#" onclick="closeMobileMenu()">Entrar</a>
     <a class="btn btn-primary" href="#" onclick="closeMobileMenu()">Come&ccedil;ar por R$39,90/m&ecirc;s</a>
 </div>
@@ -143,7 +144,7 @@
     <div class="article-cta">
         <h3>O <span style="color:#1a56db;font-weight:700;">Donu</span> resolve isso pra voc&ecirc;</h3>
         <p>O <span style="color:#1a56db;font-weight:700;">Donu</span> tem emissor de NFS-e e NF-e integrado, j&aacute; preparado para a obrigatoriedade de 2027. Com os cadastros em dia, voc&ecirc; emite nota em segundos direto pelo app.</p>
-        <a href="/precos" class="btn">Conhecer planos</a>
+        <a href="/precos/" class="btn">Conhecer planos</a>
     </div>
 
     <h2 id="section-5">Como o <span style="color:#1a56db;font-weight:700;">Donu</span> ajuda</h2>
@@ -174,21 +175,21 @@
             <p>Seu contador digital. Guia do imposto, notas fiscais e controle financeiro do seu MEI em um só lugar.</p>
         </div>
         <div class="footer-col">
-            <h4>Produto</h4>
-            <a href="/funcionalidades">Funcionalidades</a>
-            <a href="/precos">Preços</a>
-            <a href="/indicacao">Indicação</a>
+            <div class="footer-col-title">Produto</div>
+            <a href="/funcionalidades/">Funcionalidades</a>
+            <a href="/precos/">Preços</a>
+            <a href="/indicacao/">Indicação</a>
             <a href="/blog/">Blog</a>
         </div>
         <div class="footer-col">
-            <h4>Empresa</h4>
-            <a href="/sobre">Sobre</a>
+            <div class="footer-col-title">Empresa</div>
+            <a href="/sobre/">Sobre</a>
         </div>
         <div class="footer-col">
-            <h4>Legal</h4>
-            <a href="/termos-de-uso">Termos de Uso</a>
-            <a href="/politica-de-privacidade">Política de Privacidade</a>
-            <a href="/lgpd">LGPD</a>
+            <div class="footer-col-title">Legal</div>
+            <a href="/termos-de-uso/">Termos de Uso</a>
+            <a href="/politica-de-privacidade/">Política de Privacidade</a>
+            <a href="/lgpd/">LGPD</a>
         </div>
     </div>
     <div class="footer-bottom">
