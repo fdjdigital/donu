@@ -431,6 +431,50 @@ function closeMobileMenu() {
     document.body.style.overflow = '';
 }
 
+// ===== LANDING PAGE FORMS (WhatsApp) =====
+function submitFormParceiros(e) {
+    e.preventDefault();
+    var f = e.target;
+    var msg = encodeURIComponent(
+        'Olá! Vim da página de parceiros e quero agendar uma visita.\n\n' +
+        'Nome: ' + f.nome.value + '\n' +
+        'Cargo: ' + f.cargo.value + '\n' +
+        'Associação: ' + f.associacao.value + '\n' +
+        'Telefone: ' + f.telefone.value + '\n' +
+        'E-mail: ' + f.email.value
+    );
+    window.open('https://wa.me/5531999767916?text=' + msg, '_blank');
+}
+
+function submitForm(e) {
+    e.preventDefault();
+    var f = e.target;
+    var horario = f.horario.options[f.horario.selectedIndex].text;
+    var msg = encodeURIComponent(
+        'Olá! Vim da página de empresas e quero agendar uma apresentação do Donu.\n\n' +
+        'Nome: ' + f.nome.value + '\n' +
+        'Empresa: ' + f.empresa.value + '\n' +
+        'Telefone: ' + f.telefone.value + '\n' +
+        'Melhor horário: ' + horario
+    );
+    window.open('https://wa.me/5531999767916?text=' + msg, '_blank');
+}
+
+function handleContactForm(e) {
+    e.preventDefault();
+    var f = e.target;
+    var assunto = f.assunto.options[f.assunto.selectedIndex].text;
+    var msg = encodeURIComponent(
+        'Olá! Vim da página de contato do Donu.\n\n' +
+        'Nome: ' + f.nome.value + '\n' +
+        (f.empresa.value ? 'Empresa: ' + f.empresa.value + '\n' : '') +
+        (f.telefone.value ? 'Telefone: ' + f.telefone.value + '\n' : '') +
+        'Assunto: ' + assunto + '\n' +
+        (f.mensagem.value ? 'Mensagem: ' + f.mensagem.value : '')
+    );
+    window.open('https://wa.me/5531999767916?text=' + msg, '_blank');
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
     initGSAP();

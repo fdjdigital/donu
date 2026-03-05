@@ -1,0 +1,421 @@
+/* ========================================
+   LANDING PAGES — Donu (parceiros, empresas, baixar, contato)
+   Complementa style.css — NÃO duplicar tokens/componentes já existentes.
+   ======================================== */
+
+/* ---- HERO INTERNO (pages que não são home) ---- */
+.landing-hero {
+    background: linear-gradient(160deg, var(--donu-950) 0%, var(--donu-800) 40%, var(--donu-700) 100%);
+    color: white;
+    padding: 160px 40px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: auto;
+}
+.landing-hero .dot-pattern { opacity: 0.04; }
+.landing-hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+.landing-hero p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+.landing-hero .hero-cta {
+    margin-top: 36px;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* ---- VIDEO PLACEHOLDER ---- */
+.video-placeholder {
+    max-width: 720px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--donu-100), var(--donu-50));
+    border: 1px solid var(--donu-200);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--donu-400);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.video-placeholder:hover {
+    border-color: var(--donu-400);
+    box-shadow: 0 12px 40px rgba(26,86,219,0.1);
+}
+.video-play-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--donu-500);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(26,86,219,0.3);
+    transition: all 0.3s;
+}
+.video-placeholder:hover .video-play-icon {
+    transform: scale(1.1);
+    box-shadow: 0 12px 40px rgba(26,86,219,0.4);
+}
+
+/* ---- BENEFÍCIOS GRID ---- */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+.benefit-card {
+    text-align: center;
+    padding: 40px 28px;
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s;
+}
+.benefit-card:hover {
+    border-color: var(--donu-300);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(26,86,219,0.08);
+}
+.benefit-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--donu-50);
+    color: var(--donu-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 20px;
+    transition: all 0.3s;
+}
+.benefit-card:hover .benefit-icon {
+    background: var(--donu-500);
+    color: white;
+}
+.benefit-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+.benefit-card p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
+
+/* ---- CASCATA / IMPACT FLOW ---- */
+.impact-flow {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.impact-step {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-200);
+    margin-bottom: 0;
+    position: relative;
+    transition: all 0.3s;
+}
+.impact-step:hover {
+    border-color: var(--donu-300);
+    box-shadow: 0 8px 30px rgba(26,86,219,0.06);
+}
+.impact-step.danger {
+    border-color: var(--red);
+    background: #fef2f2;
+}
+.impact-step.danger:hover {
+    box-shadow: 0 8px 30px rgba(239,68,68,0.08);
+}
+.impact-arrow {
+    text-align: center;
+    padding: 8px 0;
+    color: var(--gray-300);
+    font-size: 20px;
+}
+.impact-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--donu-50);
+    color: var(--donu-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+.impact-step.danger .impact-num {
+    background: #fef2f2;
+    color: var(--red);
+}
+
+/* ---- FORMULÁRIOS DE LANDING ---- */
+.landing-form {
+    max-width: 520px;
+    margin: 0 auto;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 6px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--gray-800);
+    background: white;
+    transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--donu-500);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--gray-400);
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.form-submit {
+    width: 100%;
+    padding: 16px 36px;
+    font-size: 16px;
+    font-weight: 700;
+    background: var(--donu-500);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+}
+.form-submit:hover {
+    background: var(--donu-600);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(26,86,219,0.3);
+}
+.form-submit::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+/* ---- DOWNLOAD BUTTONS ---- */
+.download-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: var(--gray-950);
+    color: white;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+.download-btn svg { width: 28px; height: 28px; fill: white; }
+.download-btn-text {
+    text-align: left;
+}
+.download-btn-text small {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.7;
+}
+.download-btn-text strong {
+    display: block;
+    font-size: 16px;
+}
+
+/* ---- WHATSAPP CTA GRANDE ---- */
+.whatsapp-cta-big {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+}
+.whatsapp-cta-big a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px 40px;
+    background: #25d366;
+    color: white;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.3s;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.3);
+}
+.whatsapp-cta-big a:hover {
+    background: #20bd5a;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(37,211,102,0.4);
+}
+.whatsapp-cta-big a svg { width: 28px; height: 28px; fill: white; }
+
+/* ---- CONTATO GRID ---- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 960px;
+    margin: 0 auto;
+    align-items: start;
+}
+.contact-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.contact-info p {
+    color: var(--gray-500);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--gray-100);
+}
+.contact-item-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--donu-50);
+    color: var(--donu-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.contact-item-text { font-size: 14px; }
+.contact-item-text strong { display: block; font-weight: 600; }
+.contact-item-text span { color: var(--gray-500); }
+
+/* ---- LOGO DUPLA ---- */
+.dual-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+}
+.dual-logos img { height: 40px; width: auto; }
+.dual-logos .logo-sep {
+    width: 1px;
+    height: 32px;
+    background: rgba(255,255,255,0.2);
+}
+
+/* ---- FUNCIONALIDADES INLINE (lista visual) ---- */
+.features-inline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.feature-inline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-200);
+    transition: all 0.3s;
+}
+.feature-inline:hover {
+    border-color: var(--donu-300);
+    box-shadow: 0 4px 16px rgba(26,86,219,0.06);
+}
+.feature-inline-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--donu-50);
+    color: var(--donu-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.feature-inline span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+    .landing-hero { padding: 120px 24px 60px; }
+    .landing-hero h1 { letter-spacing: -1px; }
+    .landing-hero p { font-size: 16px; }
+    .benefits-grid { grid-template-columns: 1fr; max-width: 400px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    .features-inline { grid-template-columns: 1fr; max-width: 400px; }
+    .download-buttons { flex-direction: column; align-items: center; }
+    .dual-logos img { height: 32px; }
+}
