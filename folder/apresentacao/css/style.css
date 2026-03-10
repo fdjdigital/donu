@@ -1,0 +1,508 @@
+/* ============================================
+   APRESENTAÇÃO — Folder Institucional Donu
+   Responsiva mobile-first
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+  --petroleo: #112E3F;
+  --petroleo-light: #1a4a63;
+  --donu-blue: #1A56DB;
+  --donu-blue-800: #0C2D6B;
+  --donu-blue-50: #EFF6FF;
+  --white: #FFFFFF;
+  --off-white: #F8F9FA;
+  --cinza-claro: #F3F4F6;
+  --text-dark: #1F2937;
+  --text-mid: #6B7280;
+  --accent: #1A56DB;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--petroleo);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ---- Typography ---- */
+.serif { font-family: 'Playfair Display', serif; }
+.sans { font-family: 'Inter', sans-serif; }
+
+.text-hero {
+  font-size: clamp(28px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.text-lg {
+  font-size: clamp(22px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text-md {
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-body {
+  font-size: clamp(15px, 1.8vw, 20px);
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.text-sm {
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  opacity: 0.6;
+  margin-bottom: 16px;
+}
+
+/* ---- Colors ---- */
+.text-blue { color: var(--donu-blue); }
+.text-dark { color: var(--text-dark); }
+.text-mid { color: var(--text-mid); }
+.text-white { color: var(--white); }
+
+/* ---- Divider ---- */
+.divider {
+  width: 60px;
+  height: 3px;
+  background: var(--donu-blue);
+  margin: 20px 0;
+}
+
+.divider-white {
+  width: 60px;
+  height: 3px;
+  background: rgba(255,255,255,0.3);
+  margin: 20px 0;
+}
+
+/* ============================================
+   MOBILE-FIRST: Scroll Snap
+   ============================================ */
+
+.deck {
+  width: 100%;
+}
+
+.slide {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 24px;
+  text-align: center;
+  position: relative;
+}
+
+/* Backgrounds */
+.bg-petroleo { background: var(--petroleo); color: var(--white); }
+.bg-dark { background: linear-gradient(135deg, var(--petroleo) 0%, #0a1f2e 100%); color: var(--white); }
+.bg-white { background: var(--white); color: var(--text-dark); }
+.bg-light { background: var(--cinza-claro); color: var(--text-dark); }
+.bg-blue { background: var(--donu-blue); color: var(--white); }
+
+/* ---- Content wrapper ---- */
+.slide-content {
+  max-width: 900px;
+  width: 100%;
+}
+
+/* ---- Mockup ---- */
+.mockup {
+  width: 90%;
+  max-width: 800px;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 8px 20px rgba(0,0,0,0.2);
+  margin: 24px auto;
+}
+
+.mockup img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+/* ---- Spec Grid ---- */
+.spec-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  text-align: left;
+  margin-top: 24px;
+}
+
+.spec-item {
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  border-left: 3px solid var(--donu-blue);
+}
+
+.bg-white .spec-item,
+.bg-light .spec-item {
+  background: rgba(0,0,0,0.03);
+  border-left-color: var(--donu-blue);
+}
+
+.spec-item .spec-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+  margin-bottom: 4px;
+}
+
+.spec-item .spec-value {
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 600;
+}
+
+/* ---- Feature list ---- */
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.feature-list li {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 1.5;
+}
+
+.feature-list .icon-check {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: var(--donu-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.feature-list .icon-check svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--white);
+  fill: none;
+  stroke-width: 2.5;
+}
+
+/* ---- Acabamento cards ---- */
+.acabamento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.acabamento-card {
+  padding: 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.acabamento-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.acabamento-card p {
+  font-size: 14px;
+  opacity: 0.7;
+  line-height: 1.5;
+}
+
+/* ---- Logos ---- */
+.logo-donu {
+  height: clamp(28px, 5vw, 48px);
+  width: auto;
+}
+
+.logo-footer {
+  height: 24px;
+  width: auto;
+  opacity: 0.5;
+}
+
+/* ---- Progress bar (desktop only) ---- */
+.progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--donu-blue);
+  transition: width 0.4s ease;
+  z-index: 100;
+  display: none;
+}
+
+.slide-counter {
+  position: fixed;
+  bottom: 12px;
+  right: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.4;
+  z-index: 100;
+  display: none;
+  mix-blend-mode: difference;
+  color: var(--white);
+}
+
+/* ---- Nav hint (desktop) ---- */
+.nav-hint {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 100;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  color: var(--white);
+  display: none;
+}
+
+.nav-hint.visible { opacity: 0.4; }
+
+/* ---- Fullscreen button (desktop) ---- */
+.btn-fullscreen {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.btn-fullscreen:hover { background: rgba(255,255,255,0.2); }
+
+.btn-fullscreen svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--white);
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ---- Scroll indicator (mobile) ---- */
+.scroll-indicator {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 100;
+  animation: bounce 2s infinite;
+  pointer-events: none;
+}
+
+.scroll-indicator span {
+  font-size: 11px;
+  opacity: 0.4;
+  color: var(--white);
+  mix-blend-mode: difference;
+}
+
+.scroll-indicator svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--white);
+  fill: none;
+  stroke-width: 2;
+  opacity: 0.4;
+  mix-blend-mode: difference;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+.scroll-indicator.hidden { opacity: 0; transition: opacity 0.5s; }
+
+/* ============================================
+   TABLET / LANDSCAPE (>= 768px)
+   ============================================ */
+
+@media (min-width: 768px) {
+  .spec-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .acabamento-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .slide { padding: 80px 48px; }
+
+  .mockup {
+    width: 80%;
+    max-width: 900px;
+  }
+}
+
+/* ============================================
+   DESKTOP SLIDE MODE (>= 1024px)
+   ============================================ */
+
+@media (min-width: 1024px) {
+  body { overflow: hidden; }
+
+  .deck {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: unset;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.7s ease;
+    padding: 80px 80px;
+  }
+
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .progress-bar,
+  .slide-counter,
+  .btn-fullscreen,
+  .nav-hint {
+    display: flex;
+  }
+
+  .scroll-indicator { display: none; }
+
+  .slide-content { max-width: 1100px; }
+
+  .mockup {
+    width: 75%;
+    max-width: 1000px;
+  }
+
+  .spec-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .acabamento-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* ---- Split layout (desktop) ---- */
+.split {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.split .split-text {
+  text-align: center;
+}
+
+.split .split-mockup {
+  width: 90%;
+  max-width: 500px;
+}
+
+.split .split-mockup img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+}
+
+@media (min-width: 1024px) {
+  .split {
+    flex-direction: row;
+    gap: 60px;
+  }
+
+  .split .split-text {
+    flex: 1;
+    text-align: left;
+  }
+
+  .split .split-mockup {
+    flex: 1;
+    width: auto;
+    max-width: none;
+  }
+}
+
+/* ---- Footer ---- */
+.footer-vantt {
+  font-size: 12px;
+  opacity: 0.3;
+  margin-top: 40px;
+}
+
+.footer-vantt a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-vantt a:hover { opacity: 0.8; }

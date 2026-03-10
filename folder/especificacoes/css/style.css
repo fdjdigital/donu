@@ -1,0 +1,532 @@
+/* ============================================
+   ESPECIFICAÇÕES TÉCNICAS — Folder Institucional Donu
+   Documento para gráfica
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --petroleo: #112E3F;
+  --donu-blue: #1A56DB;
+  --donu-blue-800: #0C2D6B;
+  --donu-blue-50: #EFF6FF;
+  --white: #FFFFFF;
+  --off-white: #F8F9FA;
+  --cinza-claro: #F3F4F6;
+  --cinza-borda: #E5E7EB;
+  --text-dark: #1F2937;
+  --text-mid: #6B7280;
+  --text-light: #9CA3AF;
+  --amarelo-alerta: #FEF3C7;
+  --amarelo-borda: #F59E0B;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--off-white);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* ---- Container ---- */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- Header ---- */
+.header {
+  background: var(--petroleo);
+  padding: 40px 0;
+  text-align: center;
+}
+
+.header .logo {
+  height: 36px;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.header .subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+}
+
+/* ---- Badges ---- */
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+}
+
+.badge svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ---- Nav ---- */
+.nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--cinza-borda);
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-inner {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.nav-inner::-webkit-scrollbar { display: none; }
+
+.nav a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-mid);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--donu-blue);
+  border-bottom-color: var(--donu-blue);
+}
+
+/* ---- Section ---- */
+.section {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--cinza-borda);
+}
+
+.section:last-child { border-bottom: none; }
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: var(--text-mid);
+  margin-bottom: 32px;
+}
+
+/* ---- Mockups ---- */
+.mockup-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.mockup-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid var(--cinza-borda);
+}
+
+.mockup-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mockup-card .mockup-info {
+  padding: 16px 20px;
+  border-top: 1px solid var(--cinza-borda);
+}
+
+.mockup-card .mockup-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.mockup-card .mockup-meta {
+  font-size: 12px;
+  color: var(--text-mid);
+}
+
+/* ---- Spec Table ---- */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid var(--cinza-borda);
+}
+
+.spec-table th,
+.spec-table td {
+  text-align: left;
+  padding: 14px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--cinza-borda);
+}
+
+.spec-table th {
+  background: var(--cinza-claro);
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.spec-table td {
+  color: var(--text-dark);
+}
+
+.spec-table td.label-cell {
+  font-weight: 500;
+  color: var(--text-mid);
+  width: 40%;
+}
+
+.spec-table tr:last-child td { border-bottom: none; }
+
+/* ---- Color Swatches ---- */
+.color-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.color-swatch {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 16px 20px;
+  border: 1px solid var(--cinza-borda);
+}
+
+.swatch-preview {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.swatch-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.swatch-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.swatch-values {
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+/* ---- Acabamento Cards ---- */
+.acabamento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.acabamento-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 24px;
+  border: 1px solid var(--cinza-borda);
+}
+
+.acabamento-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.acabamento-card h4 svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--donu-blue);
+  fill: none;
+  stroke-width: 2;
+}
+
+.acabamento-card p {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+/* ---- Fold Diagram ---- */
+.fold-diagram {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px 24px;
+  border: 1px solid var(--cinza-borda);
+  text-align: center;
+  overflow-x: auto;
+}
+
+.fold-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---- Alert Box ---- */
+.alert-box {
+  background: var(--amarelo-alerta);
+  border-left: 4px solid var(--amarelo-borda);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin-top: 24px;
+}
+
+.alert-box p {
+  font-size: 14px;
+  color: #92400E;
+  line-height: 1.6;
+}
+
+.alert-box strong {
+  font-weight: 600;
+}
+
+/* ---- Download Section ---- */
+.download-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.download-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid var(--cinza-borda);
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.download-card:hover {
+  border-color: var(--donu-blue);
+  box-shadow: 0 4px 12px rgba(26,86,219,0.1);
+}
+
+.download-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--donu-blue-50);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.download-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--donu-blue);
+  fill: none;
+  stroke-width: 2;
+}
+
+.download-info {
+  flex: 1;
+}
+
+.download-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.download-meta {
+  font-size: 12px;
+  color: var(--text-mid);
+}
+
+/* ---- Checklist ---- */
+.checklist {
+  background: var(--white);
+  border-radius: 10px;
+  border: 1px solid var(--cinza-borda);
+  padding: 24px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--cinza-borda);
+  font-size: 14px;
+  color: var(--text-dark);
+}
+
+.checklist-item:last-child { border-bottom: none; }
+
+.checklist-item svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--donu-blue);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ---- Footer ---- */
+.footer {
+  background: var(--petroleo);
+  padding: 32px 0;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+}
+
+.footer a:hover { color: rgba(255,255,255,0.8); }
+
+/* ---- Paineis Section ---- */
+.paineis-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.painel-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid var(--cinza-borda);
+}
+
+.painel-card .painel-num {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--donu-blue);
+  margin-bottom: 6px;
+}
+
+.painel-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.painel-card p {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+/* ============================================
+   TABLET (>= 768px)
+   ============================================ */
+
+@media (min-width: 768px) {
+  .container { padding: 0 48px; }
+
+  .header { padding: 56px 0; }
+  .header h1 { font-size: 28px; }
+
+  .mockup-grid { grid-template-columns: 1fr 1fr; }
+  .color-grid { grid-template-columns: 1fr 1fr; }
+  .acabamento-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .download-grid { grid-template-columns: 1fr 1fr; }
+  .paineis-grid { grid-template-columns: 1fr 1fr 1fr; }
+
+  .section { padding: 56px 0; }
+}
+
+/* ============================================
+   DESKTOP (>= 1024px)
+   ============================================ */
+
+@media (min-width: 1024px) {
+  .container { padding: 0 80px; }
+
+  .header { padding: 64px 0; }
+  .header h1 { font-size: 32px; }
+  .header .logo { height: 40px; }
+
+  .color-grid { grid-template-columns: 1fr 1fr 1fr; }
+
+  .section { padding: 64px 0; }
+}
