@@ -1,0 +1,84 @@
+name: Proteger Arquivos
+
+on:
+  push:
+    branches: [main, master]
+
+permissions:
+  contents: write
+
+jobs:
+  proteger:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[protecao-auto]')"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verificar e proteger
+        env:
+          ACTOR: ${{ github.actor }}
+        run: |
+          OWNER="fdjdigital"
+
+          # Proprietário pode tudo
+          if [ "$ACTOR" = "$OWNER" ]; then
+            echo "✅ Alteração pelo proprietário — permitido"
+            exit 0
+          fi
+
+          PARENT="${{ github.event.before }}"
+
+          # Push inicial — nada a comparar
+          if [ "$PARENT" = "0000000000000000000000000000000000000000" ]; then
+            echo "Push inicial — ignorando"
+            exit 0
+          fi
+
+          # 1. Detectar arquivos DELETADOS
+          DELETED=$(git diff --name-only --diff-filter=D "$PARENT" HEAD || true)
+
+          # 2. Detectar alterações em arquivos PROTEGIDOS (CLAUDE.md, docs/, .github/)
+          PROTECTED=$(git diff --name-only "$PARENT" HEAD | grep -iE '^(docs/|CLAUDE\.md|\.github/)' || true)
+
+          RESTORE=false
+
+          if [ -n "$DELETED" ]; then
+            echo "⚠️ Arquivos deletados por $ACTOR:"
+            echo "$DELETED"
+            while IFS= read -r file; do
+              [ -z "$file" ] && continue
+              git checkout "$PARENT" -- "$file" 2>/dev/null && echo "  ↩ Restaurado: $file" || echo "  ✗ Falha: $file"
+            done <<< "$DELETED"
+            RESTORE=true
+          fi
+
+          if [ -n "$PROTECTED" ]; then
+            echo "⚠️ Arquivos protegidos alterados por $ACTOR:"
+            echo "$PROTECTED"
+            while IFS= read -r file; do
+              [ -z "$file" ] && continue
+              git checkout "$PARENT" -- "$file" 2>/dev/null && echo "  ↩ Restaurado: $file" || echo "  ✗ Falha: $file"
+            done <<< "$PROTECTED"
+            RESTORE=true
+          fi
+
+          if [ "$RESTORE" = true ]; then
+            git config user.name "Vantt Proteção"
+            git config user.email "protecao@vanttmkt.com"
+            git add -A
+
+            if git diff --cached --quiet; then
+              echo "Nenhuma mudança efetiva para restaurar"
+            else
+              MOTIVO=""
+              [ -n "$DELETED" ] && MOTIVO="arquivos deletados"
+              [ -n "$PROTECTED" ] && MOTIVO="${MOTIVO:+$MOTIVO + }arquivos protegidos alterados"
+              git commit -m "[protecao-auto] Restauração automática — $MOTIVO por $ACTOR"
+              git push
+              echo "✅ Proteção aplicada — alterações não autorizadas revertidas"
+            fi
+          else
+            echo "✅ Nenhuma violação detectada"
+          fi
