@@ -125,7 +125,7 @@ async function initJulius3DScene() {
     dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
     const loader = new GLTFLoader();
     loader.setDRACOLoader(dracoLoader);
-    loader.load('/assets/3d/julius-3d-opt.glb', (gltf) => {
+    loader.load('/assets/3d/julius-3d-opt.glb?v=20260311', (gltf) => {
         juliusModel = gltf.scene;
 
         // Auto-center and scale

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Julius 3D — Donu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: Inter, sans-serif;
+  background: #0a0e1a;
+  color: #fff;
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+}
+#viewer {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  position: relative;
+}
+canvas { display: block; }
+#info {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+#loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+#loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255,255,255,0.15);
+  border-top-color: #1A56DB;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#loading span { font-size: 14px; color: rgba(255,255,255,0.6); }
+#badge {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  padding: 10px 20px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+#badge img { height: 22px; }
+#badge span { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.8); }
+#controls {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  gap: 8px;
+}
+#controls button {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+#controls button:hover { background: rgba(255,255,255,0.15); }
+</style>
+</head>
+<body>
+<div id="viewer"></div>
+
+<div id="badge">
+  <img src="/images/logos/icone-donu-branca.png" alt="Donu">
+  <span>Julius 3D</span>
+</div>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <span>Carregando Julius 3D...</span>
+</div>
+
+<div id="info">Arraste para girar &middot; Scroll para zoom &middot; Dois dedos para mover</div>
+
+<div id="controls">
+  <button id="btnReset" title="Resetar vista">&#8634;</button>
+  <button id="btnBg" title="Alternar fundo">&#9681;</button>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+
+const container = document.getElementById('viewer');
+const loadingEl = document.getElementById('loading');
+const infoEl = document.getElementById('info');
+
+// Scene
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0a0e1a);
+
+// Camera
+const camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 100);
+camera.position.set(0, 1.2, 4.5);
+
+// Renderer
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.3;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+container.appendChild(renderer.domElement);
+
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+scene.add(ambientLight);
+
+const hemiLight = new THREE.HemisphereLight(0xddeeff, 0x443322, 0.9);
+scene.add(hemiLight);
+
+const keyLight = new THREE.DirectionalLight(0xfff8f0, 2.0);
+keyLight.position.set(4, 6, 5);
+scene.add(keyLight);
+
+const fillLight = new THREE.DirectionalLight(0xe0eaff, 0.9);
+fillLight.position.set(-4, 4, 3);
+scene.add(fillLight);
+
+const rimLight = new THREE.DirectionalLight(0x3366ff, 1.8);
+rimLight.position.set(0, 3, -5);
+scene.add(rimLight);
+
+const bottomLight = new THREE.PointLight(0x1A56DB, 0.6, 10);
+bottomLight.position.set(0, -1, 2);
+scene.add(bottomLight);
+
+// Ground plane (subtle reflection)
+const groundGeo = new THREE.CircleGeometry(3, 64);
+const groundMat = new THREE.MeshStandardMaterial({
+  color: 0x111827,
+  roughness: 0.4,
+  metalness: 0.1,
+});
+const ground = new THREE.Mesh(groundGeo, groundMat);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = -0.01;
+scene.add(ground);
+
+// Controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.06;
+controls.target.set(0, 1, 0);
+controls.minDistance = 1.5;
+controls.maxDistance = 10;
+controls.maxPolarAngle = Math.PI * 0.85;
+controls.update();
+
+const defaultCamPos = camera.position.clone();
+const defaultTarget = controls.target.clone();
+
+// Load model (cache-bust with timestamp)
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+const loader = new GLTFLoader();
+loader.setDRACOLoader(dracoLoader);
+
+const glbUrl = '/assets/3d/julius-3d-opt.glb?v=' + Date.now();
+
+let juliusModel = null;
+
+loader.load(glbUrl, (gltf) => {
+  juliusModel = gltf.scene;
+
+  const box = new THREE.Box3().setFromObject(juliusModel);
+  const size = box.getSize(new THREE.Vector3());
+  const center = box.getCenter(new THREE.Vector3());
+
+  const maxDim = Math.max(size.x, size.y, size.z);
+  const scale = 2.8 / maxDim;
+  juliusModel.scale.setScalar(scale);
+
+  juliusModel.position.x = -center.x * scale;
+  juliusModel.position.y = -box.min.y * scale;
+  juliusModel.position.z = -center.z * scale;
+
+  // Fix materials
+  juliusModel.traverse((child) => {
+    if (child.isMesh && child.material) {
+      child.material.metalness = 0.0;
+      child.material.roughness = 0.55;
+      child.material.needsUpdate = true;
+    }
+  });
+
+  scene.add(juliusModel);
+
+  controls.target.set(0, (size.y * scale) / 2, 0);
+  controls.update();
+
+  loadingEl.style.transition = 'opacity 0.5s';
+  loadingEl.style.opacity = '0';
+  setTimeout(() => loadingEl.remove(), 500);
+
+  setTimeout(() => { infoEl.style.opacity = '0'; }, 4000);
+
+}, (progress) => {
+  if (progress.total) {
+    const pct = Math.round(progress.loaded / progress.total * 100);
+    loadingEl.querySelector('span').textContent = `Carregando Julius 3D... ${pct}%`;
+  }
+}, (error) => {
+  console.error(error);
+  loadingEl.querySelector('span').textContent = 'Erro ao carregar';
+});
+
+// Auto-rotate
+let autoRotate = true;
+controls.addEventListener('start', () => { autoRotate = false; });
+
+// Animate
+const clock = new THREE.Clock();
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  if (juliusModel && autoRotate) {
+    juliusModel.rotation.y = t * 0.3;
+  }
+
+  controls.update();
+  renderer.render(scene, camera);
+}
+animate();
+
+// Resize
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// Controls UI
+document.getElementById('btnReset').addEventListener('click', () => {
+  camera.position.copy(defaultCamPos);
+  controls.target.copy(defaultTarget);
+  controls.update();
+  autoRotate = true;
+  if (juliusModel) juliusModel.rotation.y = 0;
+});
+
+let darkBg = true;
+document.getElementById('btnBg').addEventListener('click', () => {
+  darkBg = !darkBg;
+  scene.background = new THREE.Color(darkBg ? 0x0a0e1a : 0xf0f2f5);
+  groundMat.color.set(darkBg ? 0x111827 : 0xd1d5db);
+  document.body.style.background = darkBg ? '#0a0e1a' : '#f0f2f5';
+  document.getElementById('badge').style.color = darkBg ? '#fff' : '#111';
+});
+</script>
+</body>
+</html>
