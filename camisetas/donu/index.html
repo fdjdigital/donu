@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Coleção de Camisetas e Polos — Donu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue: #1A56DB;
+      --blue-dark: #0C2D6B;
+      --blue-light: #EFF6FF;
+      --white: #FFFFFF;
+      --light: #F3F4F6;
+      --text-dark: #111827;
+      --text-mid: #374151;
+      --text-muted: #6B7280;
+      --radius: 12px;
+      --transition: 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: #000;
+      overflow-x: hidden;
+    }
+
+    /* ===========================
+       MOBILE: scroll natural
+    =========================== */
+    .slide {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 60px);
+      position: relative;
+    }
+
+    .slide-inner {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Backgrounds */
+    .bg-dark {
+      background: linear-gradient(145deg, #0C2D6B 0%, #061536 100%);
+      color: var(--white);
+    }
+
+    .bg-white {
+      background: var(--white);
+      color: var(--text-dark);
+    }
+
+    .bg-light {
+      background: var(--light);
+      color: var(--text-dark);
+    }
+
+    .bg-blue {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    /* Label */
+    .label {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(10px, 1.5vw, 12px);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .bg-dark .label,
+    .bg-blue .label {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .bg-white .label,
+    .bg-light .label {
+      color: var(--blue);
+    }
+
+    /* Título serif */
+    .title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 52px);
+      line-height: 1.15;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .bg-dark .title,
+    .bg-blue .title {
+      color: var(--white);
+    }
+
+    .bg-white .title,
+    .bg-light .title {
+      color: var(--text-dark);
+    }
+
+    /* Divider */
+    .divider {
+      width: 60px;
+      height: 3px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .bg-dark .divider,
+    .bg-blue .divider {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .bg-white .divider,
+    .bg-light .divider {
+      background: var(--blue);
+    }
+
+    /* Parágrafo */
+    .text {
+      font-size: clamp(15px, 2vw, 17px);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    .bg-dark .text,
+    .bg-blue .text {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .bg-white .text,
+    .bg-light .text {
+      color: var(--text-mid);
+    }
+
+    /* Feature list */
+    .feature-list {
+      list-style: none;
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: clamp(14px, 1.8vw, 16px);
+      line-height: 1.5;
+    }
+
+    .bg-dark .feature-list li,
+    .bg-blue .feature-list li {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .bg-white .feature-list li,
+    .bg-light .feature-list li {
+      color: var(--text-mid);
+    }
+
+    .check-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 1px;
+    }
+
+    /* Grid de imagens */
+    .grid {
+      display: grid;
+      gap: 24px;
+      margin: 32px 0;
+    }
+
+    .grid-3 {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-2 {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .grid-item img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 8px 20px rgba(0, 0, 0, 0.15);
+      display: block;
+    }
+
+    .grid-caption {
+      text-align: center;
+      font-weight: 600;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .bg-dark .grid-caption,
+    .bg-blue .grid-caption {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .bg-white .grid-caption,
+    .bg-light .grid-caption {
+      color: var(--text-mid);
+    }
+
+    /* Mockup centralizado */
+    .mockup {
+      margin: 32px auto;
+      text-align: center;
+    }
+
+    .mockup img {
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 440px;
+    }
+
+    /* Spec grid */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .spec-item {
+      background: var(--light);
+      border-radius: 10px;
+      padding: 20px;
+      border-left: 3px solid var(--blue);
+    }
+
+    .bg-light .spec-item {
+      background: var(--white);
+    }
+
+    .spec-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+
+    .spec-value {
+      font-size: clamp(14px, 1.8vw, 16px);
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+
+    /* Logo */
+    .logo {
+      max-width: 180px;
+      width: 100%;
+      margin-bottom: 36px;
+    }
+
+    /* Slide 1 e 9 — centralizados */
+    .slide-center {
+      align-items: center;
+      text-align: center;
+    }
+
+    .slide-center .slide-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .slide-center .divider {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .slide-center .text {
+      text-align: center;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 32px 24px 24px;
+      text-align: center;
+    }
+
+    .footer a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-inline {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 40px;
+    }
+
+    .footer-inline a {
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+    }
+
+    .footer-light {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 40px;
+    }
+
+    .footer-light a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    /* Scroll indicator mobile */
+    .scroll-indicator {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      z-index: 100;
+      opacity: 1;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+
+    .scroll-indicator.hidden {
+      opacity: 0;
+    }
+
+    .scroll-indicator span {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .scroll-arrow {
+      animation: bounce 1.4s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* ===========================
+       DESKTOP: slide mode
+    =========================== */
+    @media (min-width: 1024px) {
+      body {
+        overflow: hidden;
+        height: 100dvh;
+      }
+
+      #slides-container {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        min-height: 0;
+        height: 100%;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition);
+        overflow-y: auto;
+        padding: clamp(40px, 5vw, 70px) clamp(40px, 7vw, 100px);
+      }
+
+      .slide.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .spec-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      /* Progress bar */
+      #progress-bar {
+        position: fixed;
+        bottom: 24px;
+        left: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 200;
+      }
+
+      .progress-track {
+        width: 120px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      .bg-white-context .progress-track,
+      .bg-light-context .progress-track {
+        background: rgba(0, 0, 0, 0.15);
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: var(--blue);
+        border-radius: 2px;
+        transition: width 0.4s ease;
+      }
+
+      /* Slide counter */
+      #slide-counter {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        font-size: 13px;
+        font-weight: 600;
+        z-index: 200;
+        color: rgba(255, 255, 255, 0.55);
+        font-family: 'Inter', sans-serif;
+        letter-spacing: 0.05em;
+        transition: color 0.3s;
+      }
+
+      /* Nav hint */
+      #nav-hint {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        z-index: 200;
+        transition: opacity 0.5s;
+        white-space: nowrap;
+        font-family: 'Inter', sans-serif;
+      }
+
+      #nav-hint.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* Fullscreen button */
+      #fullscreen-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 200;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s;
+        backdrop-filter: blur(4px);
+      }
+
+      #fullscreen-btn:hover {
+        background: rgba(255, 255, 255, 0.22);
+      }
+
+      #fullscreen-btn svg {
+        width: 16px;
+        height: 16px;
+        fill: rgba(255, 255, 255, 0.8);
+      }
+
+      /* Click zones */
+      .click-prev {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 35%;
+        height: 100%;
+        z-index: 50;
+        cursor: w-resize;
+      }
+
+      .click-next {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 35%;
+        height: 100%;
+        z-index: 50;
+        cursor: e-resize;
+      }
+
+      /* Hide mobile scroll indicator */
+      .scroll-indicator {
+        display: none;
+      }
+
+      /* Slide 4 mockup no desktop */
+      .mockup img {
+        max-width: 360px;
+      }
+
+      /* Footer no último slide */
+      #footer-global {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: none;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .spec-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll indicator (mobile) -->
+  <div class="scroll-indicator" id="scrollIndicator">
+    <span>Role para baixo</span>
+    <svg class="scroll-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <path d="M10 4v12M4 10l6 6 6-6" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <!-- Click zones (desktop) -->
+  <div class="click-prev" id="clickPrev"></div>
+  <div class="click-next" id="clickNext"></div>
+
+  <!-- Desktop UI -->
+  <div id="progress-bar">
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width: 11.11%"></div>
+    </div>
+  </div>
+
+  <div id="slide-counter">1 / 9</div>
+
+  <div id="nav-hint">← Anterior &nbsp;&nbsp; Próximo →</div>
+
+  <button id="fullscreen-btn" title="Tela cheia" aria-label="Tela cheia">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 3h6v2H5v4H3V3zm12 0h6v6h-2V5h-4V3zM3 15h2v4h4v2H3v-6zm16 4h-4v2h6v-6h-2v4z"/>
+    </svg>
+  </button>
+
+  <!-- Slides -->
+  <div id="slides-container">
+
+    <!-- SLIDE 1: Abertura -->
+    <section class="slide bg-dark slide-center active" data-index="0">
+      <div class="slide-inner">
+        <img src="img/logo-branca.png" alt="Donu" class="logo">
+        <h1 class="title">Coleção de Camisetas e Polos</h1>
+        <div class="divider"></div>
+        <p class="text">Peças que representam a marca com orgulho — do dia a dia ao churrasco.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Conceito -->
+    <section class="slide bg-white" data-index="1">
+      <div class="slide-inner">
+        <div class="label">Conceito</div>
+        <h2 class="title">Marca que as pessoas querem vestir.</h2>
+        <div class="divider"></div>
+        <p class="text">Pesquisamos como Google, Apple, Red Bull e Nubank fazem suas peças corporativas. O resultado: camisetas e polos premium que comunicam a Donu sem parecer propaganda — peças que as pessoas usam com orgulho.</p>
+        <ul class="feature-list">
+          <li>
+            <svg class="check-icon" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="11" fill="#1A56DB" opacity="0.12"/>
+              <path d="M6 11.5l3.5 3.5 6-7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Algodão penteado 180g/m² — toque suave, não deforma</span>
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="11" fill="#1A56DB" opacity="0.12"/>
+              <path d="M6 11.5l3.5 3.5 6-7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Bordado tridimensional — não desbota, não racha, não descola</span>
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="11" fill="#1A56DB" opacity="0.12"/>
+              <path d="M6 11.5l3.5 3.5 6-7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Design minimalista — logo pequena no peito, sem exagero</span>
+          </li>
+        </ul>
+        <p class="footer-light">Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener">vanttmkt.com</a></p>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Linha Lifestyle: Camisetas -->
+    <section class="slide bg-light" data-index="2">
+      <div class="slide-inner">
+        <div class="label">Linha Lifestyle</div>
+        <h2 class="title">Camisetas para o dia a dia.</h2>
+        <div class="divider"></div>
+        <div class="grid grid-3">
+          <div class="grid-item">
+            <img src="img/camiseta-azul-frente.jpeg" alt="Camiseta Azul Donu — frente" loading="lazy">
+            <div class="grid-caption">Azul Donu</div>
+          </div>
+          <div class="grid-item">
+            <img src="img/camiseta-branca-frente.jpeg" alt="Camiseta Branca — frente" loading="lazy">
+            <div class="grid-caption">Branca</div>
+          </div>
+          <div class="grid-item">
+            <img src="img/camiseta-preta-frente.jpeg" alt="Camiseta Preta — frente" loading="lazy">
+            <div class="grid-caption">Preta</div>
+          </div>
+        </div>
+        <p class="text">Ícone D bordado no peito esquerdo em bordado tridimensional. Etiqueta interna personalizada Donu.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Julius nas Costas -->
+    <section class="slide bg-blue" data-index="3">
+      <div class="slide-inner">
+        <div class="label">Destaque</div>
+        <h2 class="title">Julius nas costas — o diferencial.</h2>
+        <div class="divider"></div>
+        <div class="mockup">
+          <img src="img/camiseta-azul-costas-julius.jpeg" alt="Camiseta Azul Donu — Julius nas costas" loading="lazy">
+        </div>
+        <p class="text">O mascote Julius impresso em DTF nas costas com a frase "Fica tranquilo, eu cuido disso." — a camiseta que gera conversa.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Linha Lifestyle: Polos -->
+    <section class="slide bg-white" data-index="4">
+      <div class="slide-inner">
+        <div class="label">Linha Lifestyle</div>
+        <h2 class="title">Polos para reuniões e eventos.</h2>
+        <div class="divider"></div>
+        <div class="grid grid-2">
+          <div class="grid-item">
+            <img src="img/polo-azul.jpeg" alt="Polo Azul Donu" loading="lazy">
+            <div class="grid-caption">Polo Azul Donu</div>
+          </div>
+          <div class="grid-item">
+            <img src="img/polo-branca.jpeg" alt="Polo Branca" loading="lazy">
+            <div class="grid-caption">Polo Branca</div>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li>
+            <svg class="check-icon" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="11" fill="#1A56DB" opacity="0.12"/>
+              <path d="M6 11.5l3.5 3.5 6-7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Piquet 100% algodão penteado — textura premium, gola que não abre</span>
+          </li>
+          <li>
+            <svg class="check-icon" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="11" fill="#1A56DB" opacity="0.12"/>
+              <path d="M6 11.5l3.5 3.5 6-7" stroke="#1A56DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Interior do colarinho em cor contrastante — detalhe exclusivo</span>
+          </li>
+        </ul>
+        <p class="footer-light">Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener">vanttmkt.com</a></p>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Linha Premium: Camisetas -->
+    <section class="slide bg-dark" data-index="5">
+      <div class="slide-inner">
+        <div class="label">Linha Premium</div>
+        <h2 class="title">Para quem quer ir ao churrasco com estilo.</h2>
+        <div class="divider"></div>
+        <div class="mockup">
+          <img src="img/camiseta-cinza-premium.jpeg" alt="Camiseta Cinza Premium" loading="lazy">
+        </div>
+        <p class="text">Algodão penteado 200g/m², corte relaxed fit. Ícone D bordado em tom discreto — luxo silencioso. A camiseta que custa caro e as pessoas perguntam onde comprou.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: Linha Premium: Polos -->
+    <section class="slide bg-light" data-index="6">
+      <div class="slide-inner">
+        <div class="label">Linha Premium</div>
+        <h2 class="title">Polos que sussurram, não gritam.</h2>
+        <div class="divider"></div>
+        <div class="grid grid-2">
+          <div class="grid-item">
+            <img src="img/polo-preta-premium.jpeg" alt="Polo Preta Premium" loading="lazy">
+            <div class="grid-caption">Polo Preta Premium</div>
+          </div>
+          <div class="grid-item">
+            <img src="img/polo-cinza-premium.jpeg" alt="Polo Cinza Chumbo Premium" loading="lazy">
+            <div class="grid-caption">Polo Cinza Chumbo Premium</div>
+          </div>
+        </div>
+        <p class="text">Piquet 220g/m², botões foscos que combinam com o tecido. Ícone D quase invisível — tone-on-tone. Detalhe azul oculto no interior da gola.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: Especificações -->
+    <section class="slide bg-white" data-index="7">
+      <div class="slide-inner">
+        <div class="label">Especificações</div>
+        <h2 class="title">Detalhes técnicos.</h2>
+        <div class="divider"></div>
+        <div class="spec-grid">
+          <div class="spec-item">
+            <div class="spec-label">Malha Camiseta</div>
+            <div class="spec-value">Algodão penteado 180–200g/m²</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Malha Polo</div>
+            <div class="spec-value">Piquet algodão penteado 220g/m²</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Técnica</div>
+            <div class="spec-value">Bordado tridimensional</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Etiqueta</div>
+            <div class="spec-value">Woven label personalizada</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Cores Lifestyle</div>
+            <div class="spec-value">Azul Donu, Branca, Preta</div>
+          </div>
+          <div class="spec-item">
+            <div class="spec-label">Cores Premium</div>
+            <div class="spec-value">Preta, Cinza Chumbo</div>
+          </div>
+        </div>
+        <p class="footer-light">Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener">vanttmkt.com</a></p>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: Encerramento -->
+    <section class="slide bg-dark slide-center" data-index="8">
+      <div class="slide-inner">
+        <img src="img/logo-branca.png" alt="Donu" class="logo">
+        <h2 class="title">Pronto para aprovação.</h2>
+        <div class="divider"></div>
+        <p class="text">Próximos passos: aprovar modelos, definir grade de tamanhos, solicitar amostras.</p>
+        <p class="footer-inline" style="margin-top: 48px;">Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener">vanttmkt.com</a></p>
+      </div>
+    </section>
+
+  </div><!-- /slides-container -->
+
+  <script>
+    (function () {
+      var TOTAL = 9;
+      var current = 0;
+      var isDesktop = false;
+      var touchStartX = 0;
+      var touchStartY = 0;
+      var isAnimating = false;
+
+      var container = document.getElementById('slides-container');
+      var slides = Array.from(document.querySelectorAll('.slide'));
+      var progressFill = document.getElementById('progressFill');
+      var slideCounter = document.getElementById('slide-counter');
+      var navHint = document.getElementById('nav-hint');
+      var fullscreenBtn = document.getElementById('fullscreen-btn');
+      var scrollIndicator = document.getElementById('scrollIndicator');
+      var clickPrev = document.getElementById('clickPrev');
+      var clickNext = document.getElementById('clickNext');
+
+      function checkDesktop() {
+        return window.innerWidth >= 1024;
+      }
+
+      function goTo(index) {
+        if (!isDesktop) return;
+        if (isAnimating) return;
+        if (index < 0 || index >= TOTAL) return;
+
+        isAnimating = true;
+        slides[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+
+        var pct = ((current + 1) / TOTAL * 100).toFixed(2);
+        progressFill.style.width = pct + '%';
+        slideCounter.textContent = (current + 1) + ' / ' + TOTAL;
+
+        // Update counter color based on bg
+        var bg = slides[current].className;
+        if (bg.indexOf('bg-white') !== -1 || bg.indexOf('bg-light') !== -1) {
+          slideCounter.style.color = 'rgba(0,0,0,0.4)';
+          navHint.style.color = 'rgba(0,0,0,0.35)';
+          progressFill.style.background = '#1A56DB';
+          document.querySelector('.progress-track').style.background = 'rgba(0,0,0,0.12)';
+          fullscreenBtn.style.background = 'rgba(0,0,0,0.07)';
+          fullscreenBtn.style.borderColor = 'rgba(0,0,0,0.12)';
+          fullscreenBtn.querySelector('svg').style.fill = 'rgba(0,0,0,0.5)';
+        } else {
+          slideCounter.style.color = 'rgba(255,255,255,0.55)';
+          navHint.style.color = 'rgba(255,255,255,0.45)';
+          progressFill.style.background = '#1A56DB';
+          document.querySelector('.progress-track').style.background = 'rgba(255,255,255,0.2)';
+          fullscreenBtn.style.background = 'rgba(255,255,255,0.12)';
+          fullscreenBtn.style.borderColor = 'rgba(255,255,255,0.2)';
+          fullscreenBtn.querySelector('svg').style.fill = 'rgba(255,255,255,0.8)';
+        }
+
+        setTimeout(function () { isAnimating = false; }, 600);
+      }
+
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      function initDesktop() {
+        isDesktop = true;
+        slides.forEach(function (s, i) {
+          if (i !== 0) s.classList.remove('active');
+        });
+        slides[current].classList.add('active');
+        goTo(current);
+
+        // Nav hint: show 1.5s, hide after 5s
+        navHint.classList.remove('hidden');
+        setTimeout(function () {
+          navHint.style.opacity = '0';
+          setTimeout(function () { navHint.classList.add('hidden'); }, 500);
+        }, 5000);
+      }
+
+      function destroyDesktop() {
+        isDesktop = false;
+        slides.forEach(function (s) {
+          s.classList.remove('active');
+          s.style.opacity = '';
+          s.style.pointerEvents = '';
+        });
+      }
+
+      // Keyboard
+      document.addEventListener('keydown', function (e) {
+        if (!checkDesktop()) return;
+        if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+        if (e.key === 'ArrowDown') { e.preventDefault(); next(); }
+        if (e.key === 'ArrowUp') { e.preventDefault(); prev(); }
+      });
+
+      // Click zones
+      clickNext.addEventListener('click', function () { if (isDesktop) next(); });
+      clickPrev.addEventListener('click', function () { if (isDesktop) prev(); });
+
+      // Touch / swipe
+      document.addEventListener('touchstart', function (e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      document.addEventListener('touchend', function (e) {
+        if (!isDesktop) return;
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+          if (dx < 0) next();
+          else prev();
+        }
+      }, { passive: true });
+
+      // Fullscreen
+      fullscreenBtn.addEventListener('click', function () {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      });
+
+      // Scroll indicator mobile
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 100) {
+          scrollIndicator.classList.add('hidden');
+        }
+      }, { passive: true });
+
+      // Responsive
+      function onResize() {
+        var nowDesktop = checkDesktop();
+        if (nowDesktop && !isDesktop) initDesktop();
+        if (!nowDesktop && isDesktop) destroyDesktop();
+      }
+
+      window.addEventListener('resize', onResize);
+      onResize();
+    })();
+  </script>
+</body>
+</html>

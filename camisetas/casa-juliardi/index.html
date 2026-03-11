@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Coleção Exclusiva — Casa Juliardi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================================
+       RESET & BASE
+    ======================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --gold: #c9a962;
+      --gold-dim: rgba(201, 169, 98, 0.45);
+      --gold-faint: rgba(201, 169, 98, 0.1);
+      --dark: #0a0a0a;
+      --dark-mid: #1a1510;
+      --cream: #f5f0e8;
+      --cream-dark: #1a1510;
+      --white: #ffffff;
+      --white-dim: rgba(255, 255, 255, 0.7);
+      --white-faint: rgba(255, 255, 255, 0.12);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', Arial, sans-serif;
+      --transition: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--dark);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ========================================================
+       MOBILE: scroll natural vertical
+    ======================================================== */
+    .presentation {
+      width: 100%;
+    }
+
+    .slide {
+      width: 100%;
+      min-height: 100svh;
+      padding: clamp(48px, 10vw, 80px) clamp(24px, 6vw, 60px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Temas de fundo */
+    .slide--dark {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1510 100%);
+      color: var(--white);
+    }
+
+    .slide--dark-flat {
+      background: #0d0b08;
+      color: var(--white);
+    }
+
+    .slide--cream {
+      background: var(--cream);
+      color: var(--cream-dark);
+    }
+
+    /* Label de seção */
+    .slide-label {
+      font-family: var(--font-sans);
+      font-size: clamp(10px, 1.8vw, 12px);
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 24px;
+    }
+
+    .slide--cream .slide-label {
+      color: rgba(26, 21, 16, 0.4);
+    }
+
+    /* Títulos */
+    .slide-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: clamp(2rem, 5.5vw, 4.2rem);
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+      color: var(--white);
+      margin-bottom: 28px;
+      max-width: 820px;
+    }
+
+    .slide--cream .slide-title {
+      color: var(--cream-dark);
+    }
+
+    /* Divider dourado */
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 28px;
+      flex-shrink: 0;
+    }
+
+    /* Texto corpo */
+    .slide-text {
+      font-family: var(--font-sans);
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--white-dim);
+      max-width: 640px;
+    }
+
+    .slide--cream .slide-text {
+      color: rgba(26, 21, 16, 0.75);
+    }
+
+    /* ========================================================
+       SLIDE 1 — Abertura
+    ======================================================== */
+    .slide-1 .logo-wrap {
+      margin-bottom: 40px;
+    }
+
+    .slide-1 .logo-wrap img {
+      max-width: 180px;
+      margin: 0 auto;
+      filter: drop-shadow(0 0 24px rgba(201, 169, 98, 0.25));
+    }
+
+    .slide-1 .slide-title {
+      font-size: clamp(2.6rem, 6.5vw, 5rem);
+      letter-spacing: 0.04em;
+    }
+
+    .slide-1 .subtitle {
+      font-family: var(--font-sans);
+      font-size: clamp(0.82rem, 1.8vw, 0.95rem);
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: 28px;
+    }
+
+    .slide-1 .tagline {
+      font-family: var(--font-sans);
+      font-size: clamp(0.8rem, 1.6vw, 0.88rem);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.38);
+      letter-spacing: 0.04em;
+      font-style: italic;
+    }
+
+    /* ========================================================
+       SLIDE 2 — Conceito
+    ======================================================== */
+    .bullet-list {
+      list-style: none;
+      text-align: left;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .bullet-list li {
+      font-family: var(--font-sans);
+      font-size: clamp(0.85rem, 1.8vw, 0.98rem);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--white-dim);
+      padding: 10px 0 10px 20px;
+      position: relative;
+      border-bottom: 1px solid rgba(201, 169, 98, 0.08);
+    }
+
+    .bullet-list li:last-child {
+      border-bottom: none;
+    }
+
+    .bullet-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ========================================================
+       SLIDE 3 — Camisetas (grid)
+    ======================================================== */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      width: 100%;
+      max-width: 700px;
+      margin: 28px auto;
+    }
+
+    .photo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .photo-item img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 20px 60px rgba(201, 169, 98, 0.15), 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .slide--cream .photo-item img {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .slide--dark-flat .photo-item img,
+    .slide--dark .photo-item img {
+      border: 1px solid rgba(201, 169, 98, 0.1);
+    }
+
+    .photo-caption {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    .slide--cream .photo-caption {
+      color: #8b6914;
+    }
+
+    /* ========================================================
+       SLIDE 4 & 5 — Polo individual
+    ======================================================== */
+    .mockup {
+      width: 100%;
+      max-width: 520px;
+      margin: 28px auto;
+    }
+
+    .mockup img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(201, 169, 98, 0.15), 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .slide--dark-flat .mockup img,
+    .slide--dark .mockup img {
+      border: 1px solid rgba(201, 169, 98, 0.1);
+    }
+
+    .slide--cream .mockup img {
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.07);
+    }
+
+    /* ========================================================
+       SLIDE 6 — Especificações
+    ======================================================== */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid rgba(201, 169, 98, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .spec-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.025);
+      border-bottom: 1px solid rgba(201, 169, 98, 0.08);
+      text-align: left;
+    }
+
+    .spec-item:last-child {
+      border-bottom: none;
+    }
+
+    .spec-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .spec-value {
+      font-family: var(--font-sans);
+      font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.4;
+    }
+
+    /* ========================================================
+       SLIDE 7 — Encerramento
+    ======================================================== */
+    .slide-7 .logo-wrap img {
+      max-width: 140px;
+      margin: 0 auto 36px;
+      filter: drop-shadow(0 0 20px rgba(201, 169, 98, 0.2));
+    }
+
+    .slide-7 .next-steps {
+      font-family: var(--font-sans);
+      font-size: clamp(0.82rem, 1.7vw, 0.92rem);
+      font-weight: 400;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+
+    /* ========================================================
+       RODAPÉ VANTT
+    ======================================================== */
+    .footer-vantt {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.28);
+      letter-spacing: 0.06em;
+      margin-top: 32px;
+    }
+
+    .footer-vantt a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      transition: color 0.3s, border-color 0.3s;
+    }
+
+    .footer-vantt a:hover {
+      color: rgba(255, 255, 255, 0.55);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .slide--cream .footer-vantt {
+      color: rgba(26, 21, 16, 0.28);
+    }
+
+    .slide--cream .footer-vantt a {
+      border-bottom-color: rgba(26, 21, 16, 0.15);
+    }
+
+    .slide--cream .footer-vantt a:hover {
+      color: rgba(26, 21, 16, 0.55);
+    }
+
+    /* ========================================================
+       SCROLL INDICATOR (mobile only)
+    ======================================================== */
+    .scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+    }
+
+    .scroll-indicator span {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .scroll-arrow {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scroll-bounce 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scroll-bounce {
+      0%, 100% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(6px); opacity: 1; }
+    }
+
+    /* ========================================================
+       DESKTOP: slide mode (≥1024px)
+    ======================================================== */
+    @media (min-width: 1024px) {
+
+      /* Ocultar indicadores mobile */
+      .scroll-indicator {
+        display: none !important;
+      }
+
+      body {
+        overflow: hidden;
+        height: 100vh;
+      }
+
+      .presentation {
+        position: fixed;
+        inset: 0;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        min-height: unset;
+        padding: clamp(48px, 6vw, 80px) clamp(60px, 8vw, 120px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition);
+        z-index: 1;
+      }
+
+      .slide.active {
+        opacity: 1;
+        pointer-events: all;
+        z-index: 2;
+      }
+
+      /* Photo grid 2 colunas no desktop */
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 800px;
+      }
+
+      /* Spec grid 2x3 no desktop */
+      .spec-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 700px;
+      }
+
+      /* Mockup maior */
+      .mockup {
+        max-width: 580px;
+      }
+
+      /* Título maior */
+      .slide-title {
+        font-size: clamp(3rem, 4.5vw, 5rem);
+      }
+
+      /* ====================================================
+         PROGRESS BAR
+      ==================================================== */
+      #progress-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        background: var(--gold);
+        transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 100;
+        box-shadow: 0 0 8px rgba(201, 169, 98, 0.5);
+      }
+
+      /* ====================================================
+         SLIDE COUNTER
+      ==================================================== */
+      #slide-counter {
+        position: fixed;
+        bottom: 20px;
+        right: 24px;
+        font-family: var(--font-sans);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        color: rgba(201, 169, 98, 0.6);
+        z-index: 100;
+        user-select: none;
+      }
+
+      /* ====================================================
+         NAV HINT
+      ==================================================== */
+      #nav-hint {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--font-sans);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.2);
+        z-index: 100;
+        user-select: none;
+        transition: opacity 0.5s;
+        white-space: nowrap;
+      }
+
+      /* ====================================================
+         FULLSCREEN BUTTON
+      ==================================================== */
+      #fullscreen-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+        background: rgba(201, 169, 98, 0.08);
+        border: 1px solid rgba(201, 169, 98, 0.25);
+        border-radius: 6px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.3s, border-color 0.3s;
+      }
+
+      #fullscreen-btn:hover {
+        background: rgba(201, 169, 98, 0.18);
+        border-color: rgba(201, 169, 98, 0.5);
+      }
+
+      #fullscreen-btn svg {
+        width: 16px;
+        height: 16px;
+        fill: none;
+        stroke: var(--gold);
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      /* ====================================================
+         NAV ARROWS
+      ==================================================== */
+      .nav-arrow {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 100;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: rgba(201, 169, 98, 0.06);
+        border: 1px solid rgba(201, 169, 98, 0.15);
+        border-radius: 50%;
+        transition: background 0.3s, border-color 0.3s, opacity 0.3s;
+        opacity: 0.5;
+      }
+
+      .nav-arrow:hover {
+        background: rgba(201, 169, 98, 0.18);
+        border-color: rgba(201, 169, 98, 0.45);
+        opacity: 1;
+      }
+
+      .nav-arrow.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .nav-arrow svg {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: var(--gold);
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      #nav-prev { left: 16px; }
+      #nav-next { right: 16px; }
+    }
+
+    /* ========================================================
+       UTILITÁRIOS
+    ======================================================== */
+    .content-wrap {
+      width: 100%;
+      max-width: 760px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .mt-24 { margin-top: 24px; }
+    .mt-32 { margin-top: 32px; }
+    .mb-24 { margin-bottom: 24px; }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================
+       APRESENTAÇÃO
+  ====================================================== -->
+  <div class="presentation" id="presentation">
+
+    <!-- SLIDE 1 — Abertura -->
+    <section class="slide slide--dark slide-1 active" data-slide="0">
+      <div class="content-wrap">
+        <div class="logo-wrap">
+          <img src="img/logo-dourado.png" alt="Casa Juliardi" width="180" height="180" loading="eager">
+        </div>
+        <h1 class="slide-title">Coleção Exclusiva</h1>
+        <p class="subtitle">Camisetas e polos com a identidade da vinícola</p>
+        <div class="divider"></div>
+        <p class="tagline">Peças premium para presentear e vestir com orgulho.</p>
+      </div>
+      <div class="scroll-indicator">
+        <span>Rolar para ver</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 — Conceito -->
+    <section class="slide slide--dark-flat" data-slide="1">
+      <div class="content-wrap">
+        <p class="slide-label">Conceito</p>
+        <h2 class="slide-title">Luxo silencioso. Elegância que não grita.</h2>
+        <div class="divider"></div>
+        <p class="slide-text">
+          Inspiradas nas melhores vinícolas do mundo — de Bordeaux a Napa Valley.
+          O símbolo da Casa Juliardi bordado em fio metalizado dourado.
+          Peças que comunicam sofisticação sem precisar explicar.
+        </p>
+        <ul class="bullet-list mt-32">
+          <li>Algodão penteado 180g/m² — toque nobre, caimento impecável</li>
+          <li>Bordado em fio metalizado dourado — brilho sutil que captura a luz</li>
+          <li>Detalhe na nuca: "Casa Juliardi" em Cormorant Garamond dourado</li>
+        </ul>
+      </div>
+      <div class="scroll-indicator">
+        <span>Continuar</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3 — Camisetas -->
+    <section class="slide slide--cream" data-slide="2">
+      <div class="content-wrap">
+        <p class="slide-label">Camisetas</p>
+        <h2 class="slide-title">Duas cores. Uma identidade.</h2>
+        <div class="divider"></div>
+        <div class="photo-grid">
+          <div class="photo-item">
+            <img src="img/camiseta-preta.jpeg" alt="Camiseta Preta Casa Juliardi" loading="lazy">
+            <span class="photo-caption">Preta</span>
+          </div>
+          <div class="photo-item">
+            <img src="img/camiseta-areia.jpeg" alt="Camiseta Areia Casa Juliardi" loading="lazy">
+            <span class="photo-caption">Areia</span>
+          </div>
+        </div>
+        <p class="slide-text">
+          Símbolo das montanhas bordado no peito esquerdo em fio dourado.
+          Na nuca, "Casa Juliardi" bordado em Cormorant Garamond.
+        </p>
+      </div>
+      <div class="scroll-indicator">
+        <span>Continuar</span>
+        <div class="scroll-arrow" style="background: linear-gradient(to bottom, #c9a962, transparent);"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 — Polo Preta -->
+    <section class="slide slide--dark-flat" data-slide="3">
+      <div class="content-wrap">
+        <p class="slide-label">Polo</p>
+        <h2 class="slide-title">A polo que veste uma vinícola.</h2>
+        <div class="divider"></div>
+        <div class="mockup">
+          <img src="img/polo-preta.jpeg" alt="Polo Preta Casa Juliardi" loading="lazy">
+        </div>
+        <p class="slide-text">
+          Piquet 100% algodão penteado. Botões dourados.
+          Símbolo das montanhas bordado em fio metalizado dourado no peito esquerdo.
+          Textura piquet visível — acabamento de grife.
+        </p>
+      </div>
+      <div class="scroll-indicator">
+        <span>Continuar</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 — Polo Off-White -->
+    <section class="slide slide--cream" data-slide="4">
+      <div class="content-wrap">
+        <p class="slide-label">Polo</p>
+        <h2 class="slide-title">Elegância clássica em marfim.</h2>
+        <div class="divider"></div>
+        <div class="mockup">
+          <img src="img/polo-off-white.jpeg" alt="Polo Off-White Casa Juliardi" loading="lazy">
+        </div>
+        <p class="slide-text">
+          Off-white quente com bordado dourado — sofisticação monocromática.
+          Botões em tom dourado que completam a harmonia visual.
+        </p>
+      </div>
+      <div class="scroll-indicator">
+        <span>Continuar</span>
+        <div class="scroll-arrow" style="background: linear-gradient(to bottom, #c9a962, transparent);"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6 — Especificações -->
+    <section class="slide slide--dark" data-slide="5">
+      <div class="content-wrap">
+        <p class="slide-label">Especificações</p>
+        <h2 class="slide-title">Detalhes que fazem a diferença.</h2>
+        <div class="divider"></div>
+        <div class="spec-grid mt-24">
+          <div class="spec-item">
+            <span class="spec-label">Malha Camiseta</span>
+            <span class="spec-value">Algodão penteado 180g/m²</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Malha Polo</span>
+            <span class="spec-value">Piquet 100% algodão penteado</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Técnica</span>
+            <span class="spec-value">Bordado em fio metalizado dourado</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Botões Polo</span>
+            <span class="spec-value">Dourados estilo madrepérola</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Cores</span>
+            <span class="spec-value">Preta, Areia, Off-White</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Detalhe</span>
+            <span class="spec-value">Nome bordado na nuca</span>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Continuar</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7 — Encerramento -->
+    <section class="slide slide--dark slide-7" data-slide="6">
+      <div class="content-wrap">
+        <div class="logo-wrap">
+          <img src="img/logo-dourado.png" alt="Casa Juliardi" width="140" height="140" loading="lazy">
+        </div>
+        <h2 class="slide-title">Pronto para aprovação.</h2>
+        <div class="divider"></div>
+        <p class="slide-text">
+          Próximos passos: aprovar modelos, definir grade de tamanhos,
+          solicitar amostras de confecção.
+        </p>
+      </div>
+      <footer class="footer-vantt mt-32">
+        Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener">vanttmkt.com</a>
+      </footer>
+    </section>
+
+  </div><!-- /presentation -->
+
+  <!-- ======================================================
+       CONTROLES DESKTOP (renderizados via JS)
+  ====================================================== -->
+  <div id="progress-bar" style="width: 0%; display: none;"></div>
+  <div id="slide-counter" style="display: none;">1 / 7</div>
+  <div id="nav-hint" style="display: none;">← → para navegar &nbsp;|&nbsp; clique nas laterais</div>
+
+  <button id="nav-prev" class="nav-arrow hidden" aria-label="Slide anterior" style="display: none;">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button id="nav-next" class="nav-arrow" aria-label="Próximo slide" style="display: none;">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+  <button id="fullscreen-btn" aria-label="Tela cheia" style="display: none;">
+    <svg id="fs-icon-enter" viewBox="0 0 24 24">
+      <polyline points="15 3 21 3 21 9"/>
+      <polyline points="9 21 3 21 3 15"/>
+      <line x1="21" y1="3" x2="14" y2="10"/>
+      <line x1="3" y1="21" x2="10" y2="14"/>
+    </svg>
+    <svg id="fs-icon-exit" viewBox="0 0 24 24" style="display:none;">
+      <polyline points="4 14 10 14 10 20"/>
+      <polyline points="20 10 14 10 14 4"/>
+      <line x1="10" y1="14" x2="3" y2="21"/>
+      <line x1="21" y1="3" x2="14" y2="10"/>
+    </svg>
+  </button>
+
+  <!-- ======================================================
+       JAVASCRIPT
+  ====================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var TOTAL = 7;
+      var current = 0;
+      var isDesktop = false;
+      var touchStartX = 0;
+      var touchStartY = 0;
+      var isAnimating = false;
+
+      var slides = document.querySelectorAll('.slide');
+      var progressBar = document.getElementById('progress-bar');
+      var slideCounter = document.getElementById('slide-counter');
+      var navHint = document.getElementById('nav-hint');
+      var navPrev = document.getElementById('nav-prev');
+      var navNext = document.getElementById('nav-next');
+      var fullscreenBtn = document.getElementById('fullscreen-btn');
+      var fsIconEnter = document.getElementById('fs-icon-enter');
+      var fsIconExit = document.getElementById('fs-icon-exit');
+
+      function checkMode() {
+        isDesktop = window.innerWidth >= 1024;
+        if (isDesktop) {
+          enableDesktop();
+        } else {
+          disableDesktop();
+        }
+      }
+
+      function enableDesktop() {
+        progressBar.style.display = 'block';
+        slideCounter.style.display = 'block';
+        navHint.style.display = 'block';
+        navPrev.style.display = 'flex';
+        navNext.style.display = 'flex';
+        fullscreenBtn.style.display = 'flex';
+        goTo(current, false);
+      }
+
+      function disableDesktop() {
+        progressBar.style.display = 'none';
+        slideCounter.style.display = 'none';
+        navHint.style.display = 'none';
+        navPrev.style.display = 'none';
+        navNext.style.display = 'none';
+        fullscreenBtn.style.display = 'none';
+        // Garantir que todos os slides são visíveis (opacity = 1)
+        slides.forEach(function (s) {
+          s.classList.add('active');
+          s.style.opacity = '';
+          s.style.pointerEvents = '';
+          s.style.position = '';
+        });
+      }
+
+      function goTo(index, animated) {
+        if (!isDesktop) return;
+        if (animated !== false && isAnimating) return;
+        if (index < 0 || index >= TOTAL) return;
+
+        isAnimating = true;
+        current = index;
+
+        slides.forEach(function (s, i) {
+          if (i === current) {
+            s.classList.add('active');
+          } else {
+            s.classList.remove('active');
+          }
+        });
+
+        updateUI();
+
+        setTimeout(function () {
+          isAnimating = false;
+        }, 750);
+      }
+
+      function next() {
+        if (current < TOTAL - 1) goTo(current + 1, true);
+      }
+
+      function prev() {
+        if (current > 0) goTo(current - 1, true);
+      }
+
+      function updateUI() {
+        var pct = ((current + 1) / TOTAL) * 100;
+        progressBar.style.width = pct + '%';
+        slideCounter.textContent = (current + 1) + ' / ' + TOTAL;
+
+        if (current === 0) {
+          navPrev.classList.add('hidden');
+        } else {
+          navPrev.classList.remove('hidden');
+        }
+
+        if (current === TOTAL - 1) {
+          navNext.classList.add('hidden');
+        } else {
+          navNext.classList.remove('hidden');
+        }
+
+        // Ocultar hint após o primeiro slide
+        navHint.style.opacity = current === 0 ? '1' : '0.4';
+      }
+
+      /* Navegação por teclado */
+      document.addEventListener('keydown', function (e) {
+        if (!isDesktop) return;
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+          e.preventDefault();
+          next();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prev();
+        }
+      });
+
+      /* Click nas laterais */
+      document.getElementById('presentation').addEventListener('click', function (e) {
+        if (!isDesktop) return;
+        // Ignorar clique em botões
+        if (e.target.closest('button') || e.target.closest('a')) return;
+        var x = e.clientX;
+        var half = window.innerWidth / 2;
+        if (x > half) {
+          next();
+        } else {
+          prev();
+        }
+      });
+
+      /* Botões de navegação */
+      navPrev.addEventListener('click', function (e) {
+        e.stopPropagation();
+        prev();
+      });
+
+      navNext.addEventListener('click', function (e) {
+        e.stopPropagation();
+        next();
+      });
+
+      /* Touch / swipe */
+      document.addEventListener('touchstart', function (e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      document.addEventListener('touchend', function (e) {
+        if (!isDesktop) return;
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+          if (dx < 0) {
+            next();
+          } else {
+            prev();
+          }
+        }
+      }, { passive: true });
+
+      /* Fullscreen */
+      fullscreenBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(function () {});
+        } else {
+          document.exitFullscreen().catch(function () {});
+        }
+      });
+
+      document.addEventListener('fullscreenchange', function () {
+        var isFs = !!document.fullscreenElement;
+        fsIconEnter.style.display = isFs ? 'none' : 'block';
+        fsIconExit.style.display = isFs ? 'block' : 'none';
+      });
+
+      /* Resize */
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          var wasDesktop = isDesktop;
+          checkMode();
+          if (!wasDesktop && isDesktop) {
+            goTo(0, false);
+          }
+        }, 150);
+      });
+
+      /* Inicialização */
+      checkMode();
+
+    })();
+  </script>
+
+</body>
+</html>
