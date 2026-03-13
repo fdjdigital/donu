@@ -1,4 +1,0 @@
-# Bloquear acesso a pastas internas
-RedirectMatch 404 /\.git
-RedirectMatch 404 /docs(/|$)
-RedirectMatch 404 /\.github(/|$)
